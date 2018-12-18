@@ -75,6 +75,8 @@ sensio_framework_extra:
 fos_rest:
     body_converter:
         enabled: true
+        validate: true
+        validation_errors_argument: violations
     view:
         formats: { json: true, xml: false, rss: false }
         view_response_listener: force
@@ -84,3 +86,9 @@ fos_rest:
     format_listener:
         rules:
             - { path: '^/', priorities: ['json'], fallback_format: 'json' }
+    exception:
+        enabled: true
+        codes:
+           { AppBundle\Exception\ResourceValidationException: 400, \Exception: 500 }
+        messages:
+           { AppBundle\Exception\ResourceValidationException: true }
