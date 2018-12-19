@@ -80,6 +80,8 @@ fos_rest:
     view:
         formats: { json: true, xml: false, rss: false }
         view_response_listener: force
+        mime_types:
+            json: ['application/json', 'application/json;version=1.0', 'application/json;version=2.0']
     param_fetcher_listener: force
     serializer:
         serialize_null: true
@@ -92,3 +94,10 @@ fos_rest:
            { AppBundle\Exception\ResourceValidationException: 400, \Exception: 500 }
         messages:
            { AppBundle\Exception\ResourceValidationException: true }
+    versioning:
+        enabled: true
+        resolvers:
+            media_type: # Accept header
+                enabled: true
+                regex: '/(v|version)=(?P<version>[0-9\.]+)/'
+
