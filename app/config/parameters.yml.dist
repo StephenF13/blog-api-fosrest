@@ -14,7 +14,7 @@ parameters:
     mailer_host: 127.0.0.1
     mailer_user: ~
     mailer_password: ~
-    weather_api_key: 26209db73ffd91f6436db28ba672a17a
+    weather_api_key: your_key
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
